@@ -37,49 +37,62 @@ E-Mail: <a href="mailto:info@deinrezept.de">info@deinrezept.de</a></p>
 
 <h2>2. Wo deine Daten liegen</h2>
 <p>Alle von dir erfassten Daten – Depots, Buchungen, Wertpapiere, Kurse und Einstellungen – werden ausschließlich LOKAL auf deinem Gerät in einer Datenbank gespeichert. Es gibt kein Benutzerkonto und keine Übertragung dieser Inhalte an den Hersteller oder an einen Server – außer an den Speicher, den du für die optionale Synchronisierung selbst wählst (siehe 7).</p>
+<p>Optional kannst du die Datenbank mit einem Passwort verschlüsseln (SQLCipher, AES-256). Das Passwort wird nicht übertragen; ohne das Passwort ist die Datei nicht lesbar – bewahre es daher sicher auf.</p>
 
 <h2>3. Verbindungen zu Drittanbietern</h2>
 <p>Zum Abruf von Kursen, Wechselkursen, Fundamentaldaten, Logos und Nachrichten stellt die App – beim Aktualisieren bzw. automatisch im Hintergrund – Verbindungen zu externen Diensten her, u. a.:</p>
 <ul>
-  <li>Yahoo Finance (Kurse, Suche, Fundamentaldaten, Dividenden)</li>
-  <li>Financial Modeling Prep, Alpha Vantage, Finnhub, Twelve Data (Kurse/Fundamentaldaten, optional mit eigenem Schlüssel)</li>
+  <li>Yahoo Finance (Kurse, Suche, Fundamentaldaten, Dividenden, Nachrichten zu einzelnen Werten; unter „Datenquellen“ abschaltbar)</li>
+  <li>Financial Modeling Prep, Alpha Vantage, Finnhub, Twelve Data (Kurse, Fundamentaldaten, bei FMP und Finnhub auch Firmenlogos; nur mit deinem eigenen Schlüssel)</li>
   <li>CoinGecko (Kryptokurse)</li>
-  <li>Europäische Zentralbank / Frankfurter (Wechselkurse)</li>
+  <li>Europäische Zentralbank (Wechselkurse über Frankfurter, Zinsen und Statistiken aus dem EZB-Datenportal)</li>
   <li>OpenFIGI von Bloomberg (Zuordnung ISIN → Börsenkürzel; übermittelt nur ISINs)</li>
-  <li>Massive, ehemals Polygon.io (US-Dividendentermine, optional mit eigenem Schlüssel)</li>
-  <li>SEC EDGAR und Nasdaq (Unternehmens- und Dividendendaten)</li>
-  <li>GNews, Marketaux, NewsAPI (Nachrichten)</li>
-  <li>Google Übersetzer (nur bei aktivierter Übersetzung; übermittelt einzelne Nachrichtentexte und – beim übersetzten Öffnen eines fremdsprachigen Artikels – dessen Adresse; abschaltbar unter Einstellungen → „Fremdsprachige Artikel übersetzt öffnen“)</li>
-  <li>FRED (Makrodaten)</li>
-  <li>Parqet, iShares (ETF-Zusammensetzungen)</li>
-  <li>Google Favicons (Firmen-/ETF-Logos)</li>
-  <li>GitHub (Update-Hinweis; übermittelt IP und App-Version, keine Depotdaten)</li>
+  <li>Massive, ehemals Polygon.io (US-Dividendentermine; nur mit eigenem Schlüssel)</li>
+  <li>SEC EDGAR und Nasdaq (Unternehmens-, Insider- und Dividendendaten)</li>
+  <li>GNews, Marketaux, NewsAPI (Nachrichten; nur mit eigenem Schlüssel)</li>
+  <li>Federal Reserve, Europäische Zentralbank (Pressemitteilungen ohne eigenen Schlüssel; Artikel öffnen im System-Browser, auf iPhone/Android innerhalb der App)</li>
+  <li>FRED (Makrodaten; nur mit eigenem Schlüssel)</li>
+  <li>iShares (ETF-Zusammensetzung als Auswahl für die Markt-Ideen)</li>
+  <li>jsDelivr (Krypto-Symbole; übermittelt das Kürzel der Kryptowährung)</li>
+  <li>Forex Factory (Wirtschaftskalender)</li>
+  <li>Nachrichtenseiten (Vorschaubilder der Meldungen)</li>
+  <li>GitHub (Update-Hinweis; übermittelt IP, keine Depotdaten)</li>
   <li>GitHub Pages (Hinweis-Kacheln im Dashboard: Abruf der Datei mitteilungen.json höchstens alle 6 Stunden; übermittelt IP, keine Depotdaten)</li>
+  <li>Shorebird (Korrektur-Updates der App: Prüfung beim Start; übermittelt IP, App-Kennung, Version, Plattform und eine zufällige Installations-Kennung, keine Depotdaten)</li>
 </ul>
-<p>Dabei werden technisch bedingt deine IP-Adresse und die jeweils angefragten Wertpapier-Kennungen (z. B. Symbol oder ISIN) an den jeweiligen Anbieter übermittelt. Es werden KEINE personenbezogenen Depotinhalte (Stückzahlen, Beträge, Salden) an diese Anbieter gesendet. Rechtsgrundlage dieser technisch notwendigen Übermittlungen ist die Erfüllung des Nutzungsverhältnisses bzw. unser berechtigtes Interesse an der Bereitstellung der App-Funktionen (Art. 6 Abs. 1 lit. b und f DSGVO). Für die Verarbeitung bei den Anbietern gelten deren jeweils eigene Datenschutzbestimmungen.</p>
+<p>Dabei werden technisch bedingt deine IP-Adresse und die jeweils angefragten Wertpapier-Kennungen (z. B. Symbol, ISIN oder bei der Nachrichtensuche den Firmennamen) an den jeweiligen Anbieter übermittelt. Bei automatischen Abrufen ist das die Liste deiner Depot- und Watchlist-Werte; daraus lässt sich ablesen, welche Werte du hältst. Stückzahlen, Beträge und Salden werden NICHT an diese Anbieter gesendet. Mit dem Schalter „Netzwerkzugriff“ in den Einstellungen unterbindest du alle diese Verbindungen (auch Sync, Update-Hinweis und Shorebird; ausgenommen sind nur die Diagnosedaten von Google ML Kit auf Android, siehe 6); die App zeigt dann nur gespeicherte Daten. Rechtsgrundlage dieser technisch notwendigen Übermittlungen ist die Erfüllung des Nutzungsverhältnisses bzw. unser berechtigtes Interesse an der Bereitstellung der App-Funktionen (Art. 6 Abs. 1 lit. b und f DSGVO). Für die Verarbeitung bei den Anbietern gelten deren jeweils eigene Datenschutzbestimmungen.</p>
+<p>Übermittlung in Drittländer: Viele dieser Anbieter sitzen in den USA (u. a. Yahoo, GitHub, Finnhub, Financial Modeling Prep, Shorebird, SEC und Federal Reserve), andere im Vereinigten Königreich, in der EU oder in weiteren Ländern. Die Daten gehen direkt von deinem Gerät dorthin, wenn du die jeweilige Funktion nutzt. Für Empfänger in den USA, die nach dem EU-US Data Privacy Framework zertifiziert sind, gilt der Angemessenheitsbeschluss der EU-Kommission; sonst beruht die Übermittlung darauf, dass sie für die von dir genutzte Funktion erforderlich ist (Art. 49 Abs. 1 lit. b DSGVO). Außerhalb der EU kann das Datenschutzniveau niedriger sein, etwa weil Behörden leichter auf Daten zugreifen können.</p>
 
 <h2>4. Kein Tracking, keine Werbung</h2>
-<p>Die App enthält keine Analyse- oder Tracking-Werkzeuge, kein Werbenetzwerk und keine Telemetrie.</p>
+<p>Die App enthält keine Analyse- oder Tracking-Werkzeuge, kein Werbenetzwerk und keine Telemetrie an den Hersteller. Eingebaute Bausteine Dritter übermitteln nur die unter 3 (Shorebird) und 6 (Google ML Kit) genannten technischen Angaben.</p>
 
 <h2>5. API-Schlüssel</h2>
-<p>Optional hinterlegte API-Schlüssel werden ausschließlich lokal im geschützten Speicher deines Geräts (z. B. iOS-Schlüsselbund bzw. Android Keystore) aufbewahrt.</p>
+<p>Optional hinterlegte API-Schlüssel werden lokal im geschützten Speicher deines Geräts (z. B. iOS-Schlüsselbund bzw. Android Keystore) aufbewahrt und nur an den jeweiligen Anbieter gesendet. Ist dieser Speicher ausnahmsweise nicht nutzbar, bleiben sie lokal in der App-Datenbank; die App zeigt dann unter „Datenquellen“ eine Warnung.</p>
 
-<h2>6. Sicherungen und Sync</h2>
-<p>Sicherungskopien werden lokal auf deinem Gerät abgelegt; auf Wunsch kannst du sie verschlüsselt exportieren. Optional sichert die App automatisch in einen Ordner, den du selbst wählst (z. B. iCloud Drive, Dateien, USB-Stick oder einen Cloud-Ordner am Computer) – immer verschlüsselt mit deinem Sicherungs-Passwort; liegt der Ordner bei einem Cloud-Anbieter, liegen dort nur diese verschlüsselten Dateien.</p>
-<p>Die Synchronisierung ist optional. Erst wenn du einen Speicherort wählst und dich dort anmeldest, überträgt die App eine bereinigte Kopie deiner Datenbank (ohne API-Schlüssel, Zugangsdaten und Impressumsdaten) an diesen Speicher – nicht an den Hersteller:</p>
+<h2>6. Spracheingabe, Texterkennung und Home-Screen-Widgets</h2>
+<p>Die optionale Spracheingabe startet nur, wenn du das Mikrofon-Symbol antippst. Depotmetry speichert keine Audiodateien und fordert ausschließlich die lokale Spracherkennung des Betriebssystems an. Kann das Gerät nicht lokal erkennen, wird die Spracheingabe nicht gestartet; Audio wird nicht an einen Cloud-Dienst gegeben. Das erkannte Ergebnis wird vor dem Speichern angezeigt und kann bearbeitet werden.</p>
+<p>Die Home-Screen-Widgets zeigen den zuletzt von der App berechneten, gerundeten Depotwert und die Tagesveränderung. Auf iOS teilen App und Widget diese Kennzahlen über einen geschützten Keychain-Eintrag; auf Android über den lokalen Widget-Speicher. Es werden keine zusätzlichen Daten an den Hersteller übertragen. Im Privatsphäre-Modus werden Beträge maskiert.</p>
+<p>Auf Android nutzt die App für die Texterkennung (z. B. beim Import aus Fotos oder Screenshots) und für die Geräte-KI Bausteine von Google ML Kit. Bilder und Texte werden dabei auf dem Gerät verarbeitet und nicht übertragen. ML Kit sendet laut Google Angaben zum Gerät (z. B. Hersteller, Modell, Android-Version), zur App (Paketname, Version) und Leistungswerte zu Diagnosezwecken an Google, auch wenn der Schalter „Netzwerkzugriff“ aus ist.</p>
+
+<h2>7. Sicherungen und Sync</h2>
+<p>Sicherungskopien werden lokal auf deinem Gerät abgelegt; auf Wunsch kannst du sie verschlüsselt exportieren. Optional sichert die App automatisch in einen Ordner, den du selbst wählst (z. B. iCloud Drive, Dateien, USB-Stick oder einen Cloud-Ordner am Computer) – immer verschlüsselt mit deinem Sicherungs-Passwort; liegt der Ordner bei einem Cloud-Anbieter, liegen dort nur diese verschlüsselten Dateien. Die Synchronisierung ist optional. Erst wenn du einen Speicherort wählst und dich dort anmeldest, überträgt die App eine bereinigte Kopie deiner Datenbank (ohne API-Schlüssel, Zugangsdaten und Impressumsdaten) an diesen Speicher – nicht an den Hersteller:</p>
 <ul>
   <li>Google Drive (Google): in einen versteckten App-Datenordner deines Google-Kontos</li>
   <li>OneDrive (Microsoft): in den App-Ordner „Apps/Depotmetry“ deines Microsoft-Kontos</li>
   <li>Dropbox (Dropbox): in den App-Ordner „Apps/Depotmetry“ deines Dropbox-Kontos</li>
   <li>GitHub (für Fortgeschrittene): in dein eigenes privates GitHub-Repository</li>
 </ul>
+<p>Google Drive, OneDrive und Dropbox stehen nur in App-Versionen zur Verfügung, in denen sie freigeschaltet sind; sonst zeigt die App sie als „bald verfügbar“.</p>
 <p>Die App erhält nur Zugriff auf diesen App-Ordner bzw. das gewählte Repository, nicht auf deine übrigen Dateien. Die Anmeldung läuft über die Seite des Anbieters; dein Passwort sieht die App nicht. Die Zugangsdaten (Tokens) liegen nur im geschützten Speicher deines Geräts und werden nicht synchronisiert. Bei Google Drive und Dropbox speichert die App zusätzlich die E-Mail-Adresse des verbundenen Kontos lokal, um sie anzuzeigen.</p>
 <p>Ist die Datenbankverschlüsselung aktiv, ist auch die Sync-Datei verschlüsselt; sonst kann der Anbieter ihren Inhalt technisch lesen. Für die Verarbeitung beim Anbieter gelten dessen Datenschutzbestimmungen; die Daten können dort auch außerhalb der EU bzw. des Vereinigten Königreichs gespeichert werden.</p>
-<p>Unabhängig davon können die lokalen App-Daten – je nach Betriebssystem und Einstellungen – in den vom Betriebssystem verwalteten Gerätebackups (z. B. iCloud oder Google Drive) enthalten sein. Diese Backups werden vom jeweiligen Betriebssystem-Anbieter nach dessen Angaben verschlüsselt; die App kann sie nicht steuern. Für zusätzlichen Schutz kannst du in den Einstellungen die Datenbankverschlüsselung aktivieren.</p>
+<p>Unabhängig davon können die lokalen App-Daten – je nach Betriebssystem und Einstellungen – in den vom Betriebssystem verwalteten Gerätebackups (z. B. iCloud) enthalten sein. Auf Android sind Datenbank, Sicherungen und Zugangsdaten vom Geräte-Backup bei Google und vom Geräte-Transfer ausgenommen. Diese Backups werden vom jeweiligen Betriebssystem-Anbieter nach dessen Angaben verschlüsselt; die App kann sie nicht steuern. Für zusätzlichen Schutz kannst du in den Einstellungen die Datenbankverschlüsselung aktivieren.</p>
 <p>Die Sync-Datei bleibt beim gewählten Anbieter, auch wenn du alle App-Daten löschst oder die Verbindung trennst; lösche sie bei Bedarf dort. „Trennen“ widerruft den Zugriff der App bei Google und Dropbox; bei Microsoft entfernt es die Zugangsdaten nur von diesem Gerät, den Zugriff selbst beendest du in deinem Microsoft-Konto. Bei GitHub widerrufst du dafür den Token.</p>
 
-<h2>7. Deine Rechte</h2>
-<p>Du hast nach DSGVO / UK GDPR das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Da der Hersteller selbst keine personenbezogenen Daten von dir speichert, betreffen diese Rechte vor allem deine lokalen Daten: Du kannst sie jederzeit in der App einsehen, exportieren oder durch Löschen der lokalen Datenbank vollständig entfernen. Für Anfragen wende dich an <a href="mailto:info@deinrezept.de">info@deinrezept.de</a>. Außerdem hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (in der EU die Behörde deines Landes, im Vereinigten Königreich das Information Commissioner’s Office, <a href="https://ico.org.uk">ico.org.uk</a>).</p>
+<h2>8. Speicherdauer</h2>
+<p>Deine Depot- und Buchungsdaten, Einstellungen und Schlüssel bleiben auf deinem Gerät, bis du sie änderst, mit „Alle Daten löschen“ entfernst oder die App löschst. Tägliche lokale Sicherungen hebt die App 30 Tage auf (einstellbar), ältere nur noch je Monat die neueste, höchstens 24 Monate. Das Diagnose-Protokoll ist auf etwa 2 MB je Datei begrenzt; ältere Einträge werden überschrieben. Zwischengespeicherte Kurse und Nachrichten werden laufend ersetzt. Kopien in deinem Sync- oder Sicherungsordner bleiben dort, bis du sie selbst löschst. Der Hersteller speichert keine Daten von dir. Wie lange die Anbieter aus Abschnitt 3 IP-Adressen und Anfragen speichern, richtet sich nach deren Bestimmungen.</p>
+
+<h2>9. Deine Rechte</h2>
+<p>Du hast nach DSGVO / UK GDPR das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Da der Hersteller selbst keine personenbezogenen Daten von dir speichert, betreffen diese Rechte vor allem deine lokalen Daten: Du kannst sie jederzeit in der App einsehen, exportieren oder mit „Alle Daten löschen“ vollständig entfernen – das löscht die Datenbank, lokale Sicherungen und Logs sowie Zugangsdaten und Schlüssel im geschützten Speicher. Optionale Funktionen (Netzwerkzugriff, Yahoo Finance, API-Schlüssel, Sync, Sicherungsordner) kannst du jederzeit in den Einstellungen abschalten bzw. entfernen. Für Anfragen wende dich an <a href="mailto:info@deinrezept.de">info@deinrezept.de</a>. Außerdem hast du das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (in der EU die Behörde deines Landes, im Vereinigten Königreich das Information Commissioner's Office, <a href="https://ico.org.uk">ico.org.uk</a>).</p>
 
 <p class="note">Hinweis: Dieser Text beschreibt das Datenverhalten der App nach bestem Wissen und ist keine Rechtsberatung.</p>
 
